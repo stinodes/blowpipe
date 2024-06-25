@@ -1,0 +1,94 @@
+.playr {
+  --control-bar-height: 46px;
+
+  .video-js {
+    .vjs-mouse-display {
+      background-color: unset;
+    }
+
+    .vjs-control-bar {
+      background-color: unset;
+      padding-top: 2px;
+      /* @apply bg-gray-900/90 h-12; */
+      height: var(--control-bar-height);
+      @apply bg-gradient-to-tr from-gray-950/90 via-gray-900/90 to-slate-800/95;
+
+      .vjs-progress-control {
+        position: unset;
+        .vjs-progress-holder.vjs-slider {
+          @apply absolute top-0 left-0 right-0 rounded-none mx-0;
+        }
+      }
+
+      .vjs-control.vjs-button {
+        width: unset;
+        align-items: center;
+        @apply aspect-square;
+        &:hover {
+          .vjs-icon-placeholder::before {
+            @apply text-violet-300;
+          }
+        }
+        .vjs-icon-placeholder::before {
+          @apply flex justify-center items-center text-3xl text-violet-100 transition-colors;
+        }
+      }
+      .vjs-current-time,
+      .vjs-time-divider,
+      .vjs-duration {
+        min-width: unset;
+        @apply flex items-center text-sm font-semibold px-2;
+      }
+      .vjs-current-time {
+        @apply pl-4;
+      }
+      .vjs-duration {
+        @apply pr-4;
+      }
+
+      .vjs-slider,
+      .vjs-slider-bar,
+      .vjs-load-progress {
+        @apply rounded-full overflow-hidden;
+      }
+      .vjs-play-progress {
+        @apply bg-violet-500;
+        &::before {
+          display: none;
+        }
+      }
+      .vjs-progress-holder:hover {
+        .vjs-play-progress {
+          @apply bg-violet-500;
+          &::before {
+            display: none;
+          }
+        }
+      }
+      .vjs-volume-level {
+        @apply bg-violet-100 transition-colors;
+      }
+
+      .vjs-volume-panel {
+        align-items: center;
+        &.vjs-hover {
+          width: calc(120px + var(--control-bar-height));
+        }
+
+        .vjs-volume-level::before {
+          display: none;
+        }
+        .vjs-volume-horizontal,
+        .vjs-slider-horizontal {
+          width: 0px;
+        }
+        &.vjs-hover {
+          .vjs-volume-horizontal,
+          .vjs-slider-horizontal {
+            width: 120px;
+          }
+        }
+      }
+    }
+  }
+}
